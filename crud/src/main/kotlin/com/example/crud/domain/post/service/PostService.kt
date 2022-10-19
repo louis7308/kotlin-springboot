@@ -27,4 +27,9 @@ class PostService(
         return id
     }
 
+    @Transactional
+    fun findPostById(id: Long): PostResponseDto {
+        val post = postRepository.findByIdOrNull(id) ?: throw IllegalArgumentException("id = $id, 해당하는 게시글이 없습니다.")
+        return PostResponseDto(post);
+    }
 }

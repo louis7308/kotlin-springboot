@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController
 class PostApiController(
    private val postService: PostService
 ) {
+    @GetMapping("/{id}")
+    fun findPostById(@PathVariable id: Long): PostResponseDto = postService.findPostById(id)
+
     @PostMapping
     fun save(@RequestBody requestDto: PostSaveRequestDto): Long? = postService.save(requestDto)
 
