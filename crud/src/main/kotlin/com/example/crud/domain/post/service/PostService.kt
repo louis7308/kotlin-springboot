@@ -15,4 +15,16 @@ class PostService(
     // 게시글 저장
     @Transactional
     fun save(requestDto : PostSaveRequestDto): Long? = postRepository.save(requestDto.toEntity()).id
+
+    // 게시글 수정
+    @Transactional
+    fun update(id: Long, requestDto: PostUpdateRequestDto) : Long? {
+        val post = postRepository.findByIdOrNull(id) ?: throw IllegalArgumentException("id = $id, 해당하는 게시글이 없습니다.")
+
+        post.title = requestDto.title
+        post.content = requestDto.content
+
+        return id
+    }
+
 }

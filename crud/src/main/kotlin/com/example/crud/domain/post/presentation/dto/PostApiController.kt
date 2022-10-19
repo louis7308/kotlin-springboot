@@ -19,4 +19,7 @@ class PostApiController(
 ) {
     @PostMapping
     fun save(@RequestBody requestDto: PostSaveRequestDto): Long? = postService.save(requestDto)
+
+    @PutMapping("/{id}")
+    fun update(@PathVariable("id") id: Long, @RequestBody requestDto: PostUpdateRequestDto): Long? = postService.update(id, requestDto)
 }
