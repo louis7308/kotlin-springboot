@@ -29,4 +29,20 @@ internal class PostServiceTest(
         }
     }
 
+    @Test
+    @DisplayName("게시물 수정하기")
+    fun `게시물 수정하기`() {
+        // given
+        val id = 1L
+        val title = "당근마켓"
+        val content = "백엔드 개발자다"
+        val updateReq = PostUpdateRequestDto(title, content)
+        // when
+        postService.update(id, updateReq)
+        val post = postRepository.findById(id).get()
+        // then
+        Assertions.assertEquals(title, post.title)
+        Assertions.assertEquals(content, post.content)
+        title shouldBe "당근마켓ㅇ"
+    }
 }
