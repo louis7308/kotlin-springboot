@@ -14,4 +14,8 @@ class MemberRepository {
         entityManager.persist(member)
         return member.id
     }
+
+    fun find(id: Long) : Member {
+        return entityManager.find(Member::class.java, id)
+    }
 }
