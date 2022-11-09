@@ -26,4 +26,12 @@ class MemberController(
         )
         return memberRepository.save(member)
     }
+
+    @GetMapping("/member")
+    @Transactional
+    fun findAll(@RequestParam("id") id: Long) : Member {
+        var member: Member = memberRepository.find(id)
+        return member;
+    }
+
 }
