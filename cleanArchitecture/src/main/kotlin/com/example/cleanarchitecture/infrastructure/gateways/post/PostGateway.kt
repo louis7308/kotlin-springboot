@@ -5,4 +5,5 @@ import com.example.cleanarchitecture.infrastructure.gateways.post.model.response
 
 interface PostGateway {
     fun create(createPostGatewayRequestModel: CreatePostGatewayRequestModel)
+    fun findAll(): List<PostGatewayResponseModel>
 }
