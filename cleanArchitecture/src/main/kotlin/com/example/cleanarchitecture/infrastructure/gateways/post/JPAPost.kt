@@ -5,7 +5,6 @@ import com.example.cleanarchitecture.infrastructure.gateways.post.model.response
 import com.example.cleanarchitecture.infrastructure.repositories.JPAPostRepository
 import com.example.cleanarchitecture.infrastructure.table.PostTable
 import org.springframework.stereotype.Service
-import java.util.stream.Collector
 import java.util.stream.Collectors
 
 @Service
