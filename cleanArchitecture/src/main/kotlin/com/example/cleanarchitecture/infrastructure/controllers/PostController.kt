@@ -24,7 +24,6 @@ class PostController(
         return ResponseEntity.ok().body(posts)
     }
 
-
     @PostMapping
     fun create(@RequestBody createPostRequestModel: CreatePostRequestModel) : ResponseEntity<Void> {
         createPostInputBoundary.create(createPostRequestModel)
