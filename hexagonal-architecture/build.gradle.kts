@@ -5,7 +5,21 @@ plugins {
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+    kotlin("plugin.allopen") version "1.6.21"
+    kotlin("plugin.noarg") version "1.6.21"
+    kotlin("plugin.jpa") version "1.6.21"
 }
+
+
+allOpen {
+annotation("javax.persistence.Entity")
+}
+
+
+noArg {
+annotation("javax.persistence.Entity")
+}
+
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
@@ -17,6 +31,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
