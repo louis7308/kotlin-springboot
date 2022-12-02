@@ -1,6 +1,6 @@
 package com.example.hexagonalarchitecture.application.order.port.`in`
 
 class OrderResult(
-    orderId: String,
-    money: Int
+    val orderId: String,
+    val money: Int
 )
