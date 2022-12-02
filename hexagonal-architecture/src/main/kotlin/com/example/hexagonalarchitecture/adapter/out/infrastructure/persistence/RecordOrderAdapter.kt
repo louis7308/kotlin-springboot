@@ -14,4 +14,9 @@ class RecordOrderAdapter(
         return OrderRecord(orderRecord.orderId, orderRecord.money)
     }
 
+    override fun recordOrder(orderRecord: OrderRecord) {
+        orderRecordRepository.save(OrderRecordEntity.from(orderRecord))
+    }
+
+
 }
