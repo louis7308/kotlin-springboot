@@ -1,5 +1,5 @@
 package com.example.hexagonalarchitecture.application.order.port.`in`
 
-interface PlaceOrderUserCase {
+interface PlaceOrderUseCase {
     fun placeOrder(orderDetail: OrderRequest) : OrderResult
 }
