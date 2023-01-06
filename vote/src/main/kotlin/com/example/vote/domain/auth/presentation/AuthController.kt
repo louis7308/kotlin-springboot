@@ -22,3 +22,10 @@ class AuthController(
         authService.signUp(signUpRequest)
         return ResponseEntity(SuccessResponse, HttpStatus.OK)
     }
+
+    @PostMapping("/signIn")
+    fun signIn(@RequestBody signInRequest: SignInRequest) : ResponseEntity<SignInResponse> {
+        val signIn = authService.signIn(signInRequest)
+        return ResponseEntity(signIn, HttpStatus.OK)
+    }
+}

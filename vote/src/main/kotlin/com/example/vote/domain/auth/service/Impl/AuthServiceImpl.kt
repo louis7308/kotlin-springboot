@@ -23,3 +23,23 @@ class AuthServiceImpl(
         userRepository.save(user)
     }
 
+    override fun signIn(signInRequest: SignInRequest): SignInResponse {
+        val user: User? =  userRepository.findByIdOrNull(signInRequest.id)
+        if (user != null) {
+            if(user.password == signInRequest.password) {
+                return SignInResponse(
+                    id = user.id,
+                    name = user.username,
+                    status = 200,
+                    isLogin = true
+                )
+            }
+        }
+        return SignInResponse(
+            id = null,
+            name = null,
+            status = 404,
+            isLogin = false
+        )
+    }
+}

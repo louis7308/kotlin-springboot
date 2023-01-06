@@ -6,3 +6,6 @@ import com.example.vote.domain.auth.dto.response.SignInResponse
 
 interface AuthService {
     fun signUp(signUpRequest: SignUpRequest)
+
+    fun signIn(signInRequest: SignInRequest) : SignInResponse
+}
